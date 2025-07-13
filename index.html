@@ -1,1 +1,244 @@
-# project
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Alex Styles Portfolio</title>
+  <style>
+    :root {
+      --primary: #1E90FF;
+      --secondary: #f0f0f0;
+      --accent: #FF6347;
+      --text-color: #333;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      background-color: var(--secondary);
+      color: var(--text-color);
+      margin: 0;
+      padding: 0;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    body.dark-mode {
+      --primary: #111;
+      --secondary: #222;
+      --accent: #FF6347;
+      --text-color: #eee;
+      background-color: var(--secondary);
+      color: var(--text-color);
+    }
+
+    .header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .nav-link {
+      margin-right: 20px;
+      position: relative;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .nav-link:hover::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: #222;
+      color: #fff;
+      padding: 5px 10px;
+      border-radius: 5px;
+      font-size: 0.75rem;
+      white-space: nowrap;
+      opacity: 1;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    .nav-link::after {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .section {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .section h2 {
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .section p {
+      margin-bottom: 20px;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .project-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s, box-shadow 0.3s;
+    }
+
+    .project-card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    .view-project {
+      display: inline-block;
+      text-align: center;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 10px 15px;
+      border-radius: 5px;
+      transition: background 0.2s;
+    }
+
+    .view-project:hover {
+      background: var(--accent);
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .contact-form button {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .contact-form button:hover {
+      background: var(--accent);
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .nav-link {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+    }
+
+    .toggle-theme {
+      background: white;
+      color: var(--primary);
+      border: 2px solid var(--primary);
+      padding: 8px 12px;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-left: auto;
+    }
+
+    .toggle-theme:hover {
+      background: var(--primary);
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <h1>Alex Styles</h1>
+    <nav>
+      <a href="#about" class="nav-link" data-tooltip="Go to About">About</a>
+      <a href="#portfolio" class="nav-link" data-tooltip="View Projects">Portfolio</a>
+      <a href="#contact" class="nav-link" data-tooltip="Send a Message">Contact</a>
+    </nav>
+    <button class="toggle-theme">Toggle Dark Mode</button>
+  </header>
+
+  <section id="about" class="section">
+    <h2>About Me</h2>
+    <p>Creative Developer passionate about UI/UX and clean code.</p>
+  </section>
+
+  <section id="portfolio" class="section">
+    <h2>Portfolio</h2>
+    <div class="portfolio-grid">
+      <div class="project-card">
+        <h3>Project One</h3>
+        <a href="p1.html" class="view-project">View Details</a>
+      </div>
+      <div class="project-card">
+        <h3>Project Two</h3>
+        <a href="p2.html" class="view-project">View Details</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <h2>Contact</h2>
+    <form class="contact-form">
+      <input type="text" placeholder="Your Name" />
+      <input type="email" placeholder="Your Email" />
+      <textarea placeholder="Your Message"></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </section>
+
+  <script>
+    document.querySelector('.toggle-theme').addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+    });
+  </script>
+</body>
+</html>
